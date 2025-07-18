@@ -26,33 +26,24 @@ NodoB*CrearNodo(bool EsHoja)
         nuevo_nodo->hijos[i]=nullptr;
 
     }
-    return nuevo_nodo;
+    return nuevo_nodo;  
 
 }
 
 void dividirHijo(NodoB*padre,int i,NodoB*hijo)
 {
 
-    //paso 1: aqui se copian las claves del hijo + espacio para la nueva clave 
-    int auxClaves[ORDEN];//tamanio de la clava 3
-    for(int j=0;j<ORDEN-1;j++)
-    {
-
-        auxClaves[j]=hijo->claves[j];
-
-    }
-
     //aqui se ordenan las claves si se quiere insertar antes de dividir  (simula que el hijo ya estaba lleno)
     //en este caso, ya estan bien distribuidas, asi que tomamos directamente
     int claveCentral=hijo->claves[1];
 
-    // Paso 2: crear nuevo nodo (hermano derecho)
+    // Paso 1: crear nuevo nodo (hermano derecho)
     NodoB*nuevo_nodo=CrearNodo(hijo->hoja);
 
-    //Paso 3: reasignar hijo original con la clave menor
+    //Paso 2: reasignar hijo original con la clave menor
     hijo->n=1;
 
-    //Paso 4: copiar hijos si no es hoja
+    //Paso 3: copiar hijos si no es hoja
     if(!hijo->hoja)
     {
 
@@ -61,12 +52,12 @@ void dividirHijo(NodoB*padre,int i,NodoB*hijo)
 
     }
     
-    //Paso 5: insertar nuevo hijo al padre
+    //Paso 4: insertar nuevo hijo al padre
     for(int j=padre->n;j>=i+1;j--)
         padre->hijos[j+1]=padre->hijos[j];
     padre->hijos[i+1]=nuevo_nodo;
 
-    //Paso 6: insertar claveCentral al padre
+    //Paso 5 : insertar claveCentral al padre
     for(int j=padre->n-1;j>=i;j--)
         padre->claves[j+1]=padre->claves[j];
     padre->claves[i]=claveCentral;
