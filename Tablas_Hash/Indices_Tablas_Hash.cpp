@@ -30,7 +30,7 @@ unordered_map<int,streampos> indiceHash;
 
     Nos permite usar la estructura unordered_map, que es una tabla hash de C++.
 
-    ¿Qu es unordered_map?
+    ¿Que es unordered_map?
     Es una estructura de clave-valor, donde:
 
     Las claves se almacenan sin orden especifico.
