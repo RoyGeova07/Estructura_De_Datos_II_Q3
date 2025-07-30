@@ -24,7 +24,7 @@ void ImprimirPares(int n,vector<pair<int,int>>&pares)
 int main()
 {
 
-   int n = 35; // Puedes cambiarlo para ver la diferencia
+   int n = 35; //tamanio de pares, como una matriz n x n
 
     vector<pair<int, int>> pares;
 
